@@ -1,0 +1,25 @@
+#include<iostream>
+#include<vector>
+#include<memory>
+using namespace std;
+
+namespace DolatCapital{
+    enum class OrderType{
+        BUY,
+        SELL
+    };
+    class IStrategy{
+        public:
+        virtual double signal(double price);
+        virtual string strategyName();
+        virtual ~IStrategy()=default;
+
+    }
+
+};
+int main(){
+    using namespace DolatCapital;
+    TradingEngine engine;
+    engine.run();
+    
+}
