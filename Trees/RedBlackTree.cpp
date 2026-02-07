@@ -16,3 +16,32 @@ where used? map and set and multiset multimap
 java: treemap treeset
 
 */
+enum Color {RED, BLACK};
+class Node{
+    public:
+    int data; 
+    Color color;
+    Node* left, *right, *parent;
+    Node(int val){
+        this->data=val;
+        this->color=color;
+        left=right=parent=nullptr;
+    }
+};
+
+class RedBlackTree{
+    private: Node* root;
+    public:
+    RedBlackTree(){
+        root=nullptr;
+    }
+}
+int main(){
+    RedBlackTree rdt;
+    int keys[] = {10, 20, 30, 15, 25, 5};
+    for(int x:keys){
+        rdt.insert(x);
+    }
+    rdt.print();
+    return 0;
+}

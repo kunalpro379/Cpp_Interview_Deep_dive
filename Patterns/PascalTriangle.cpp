@@ -39,14 +39,30 @@ void printmamo(int rows){
 void printDP(int rows){
     //create a DP table
     vector<vector<int>>DP(rows, vector<int>(rows,0));
+    // nc1=1=ncn
     for(int n=0;n<rows;n++){
-        
+        DP[n][0]=DP[n][n]=1;
+        for(int r=1;r<n;r++){
+            DP[n][r]=DP[n-1][r-1]+DP[n-1][r];
+        }
+        for(int i=0;i<rows;i++){
+            cout<< "  ";
+        }
+    }
+    for(int i = 0; i < rows; i++){
+        for(int space = 0; space < rows - i - 1; space++){
+            cout << "  ";
+        }
+        for(int r = 0; r <= i; r++){
+            cout << DP[i][r] << "    ";
+        }
+        cout << endl;
     }
 }
 int main(){
-    print(32);
+    print(10);
     cout<<endl;
-    printmamo(32);
-    printDP(32);
+    printmamo(10);
+    printDP(10);
 
 }
