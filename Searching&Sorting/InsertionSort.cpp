@@ -2,23 +2,24 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void selectionSort(vector<int>&a){
+void InsertionSort(vector<int>&a){
     int n=a.size();
-    for(int i=0;i<n-1;i++){
-        int minIdx=i;
-        for(int j=i+1;j<n;j++){//mistake: j<n-1
-            if(a[j]<a[minIdx]){
-                minIdx=j;
-            }
+    for(int i=0;i<n;i++){
+        int key=a[i];
+        int j=i-1;
+        while(j>=0&& a[j]>key){
+            a[j+1]=a[j];j--;
         }
-        swap(a[i], a[minIdx]);
+        a[j+1]=key;
     }
+
 }
+//[12 | 11 13 5 6]
 int main(){
     vector<int>a={
         12,1,21,42,435,54,564,3,2
     };
-    selectionSort(a);
+    InsertionSort(a);
     for(auto  const& it: a){
         cout<<it<<endl;
     }
